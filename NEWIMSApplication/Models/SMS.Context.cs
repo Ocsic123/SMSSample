@@ -12,6 +12,8 @@ namespace NEWIMSApplication.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class SMSEntities : DbContext
     {
@@ -28,5 +30,10 @@ namespace NEWIMSApplication.Models
         public virtual DbSet<Department> Departments { get; set; }
         public virtual DbSet<Employee> Employees { get; set; }
         public virtual DbSet<UserProfile> UserProfiles { get; set; }
+    
+        public virtual ObjectResult<GetAllUsers_Result> GetAllUsers()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetAllUsers_Result>("GetAllUsers");
+        }
     }
 }

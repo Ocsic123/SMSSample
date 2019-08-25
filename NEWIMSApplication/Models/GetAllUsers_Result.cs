@@ -10,9 +10,8 @@
 namespace NEWIMSApplication.Models
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class UserProfile
+    public partial class GetAllUsers_Result
     {
         public int UserId { get; set; }
         public string UserName { get; set; }

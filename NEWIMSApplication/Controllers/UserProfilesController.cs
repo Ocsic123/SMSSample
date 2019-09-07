@@ -15,7 +15,7 @@ namespace NEWIMSApplication.Controllers
         private SMSEntities db = new SMSEntities();
 
         // GET: UserProfiles
-        [Route(“Mvctest”)]
+        [Route("Mvctest")]
         public ActionResult Index()
         {
             //var a = db.GetAllUsers();

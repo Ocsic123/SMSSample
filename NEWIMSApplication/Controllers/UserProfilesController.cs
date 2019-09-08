@@ -15,7 +15,7 @@ namespace NEWIMSApplication.Controllers
         private SMSEntities db = new SMSEntities();
 
         // GET: UserProfiles
-        [Route("Mvctest")]
+        //[Route("Mvctest")]
         public ActionResult Index()
         {
             //var a = db.GetAllUsers();
@@ -124,6 +124,72 @@ namespace NEWIMSApplication.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+        public class DataTableData
+        {
+            public int draw { get; set; }
+            public int recordsTotal { get; set; }
+            public int recordsFiltered { get; set; }
+            public List<DataItem> data { get; set; }
+        }
+
+        public class DataItem
+        {
+            public string Name { get; set; }
+            public string Age { get; set; }
+            public string DoB { get; set; }
+        }
+
+        public ActionResult AjaxGetJsonData()
+        {
+
+            DataTableData dataTableData = new DataTableData();
+            dataTableData.draw = 1;
+            dataTableData.recordsTotal = 5;
+            int recordsFiltered = 0;
+            //dataTableData.data = FilterData(ref recordsFiltered, start, length, search, sortColumn, sortDirection);
+            //dataTableData.recordsFiltered = recordsFiltered;
+
+
+            DataItem customer1 = new DataItem()
+            {
+                Name = "1",
+                Age = "Sourabh",
+                DoB = "50000"
+            };
+            DataItem customer2 = new DataItem()
+            {
+                Name = "2",
+                Age = "Shaili",
+                DoB = "60000"
+            };
+            DataItem customer3 = new DataItem()
+            {
+                Name = "3",
+                Age = "Saloni",
+                DoB = "55000"
+            };
+            dataTableData.data = new List<DataItem>();
+            dataTableData.data.Add(customer1);  // Here Add Method is used to add the item to the list
+            dataTableData.data.Add(customer2);
+
+            //adding one more customer wheather capacity is 2 only  
+            dataTableData.data.Add(customer3);
+
+
+
+
+
+
+            //dataTableData.data = new List<DataItem> { Name = "Anjan", Age = "20", DoB = "09/12/2019" };
+
+            return Json(dataTableData, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult ListView()
+        {
+
+            return View();
         }
     }
 }

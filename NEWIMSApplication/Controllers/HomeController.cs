@@ -9,10 +9,10 @@ namespace NEWIMSApplication.Controllers
 {
     public class HomeController : Controller
     {
-        //public ViewResult Index()
-        //{
-        //    return View();
-        //}
+        public ViewResult Index()
+        {
+            return View();
+        }
 
         //public ContentResult Index()
         //{
@@ -45,10 +45,10 @@ namespace NEWIMSApplication.Controllers
         //    return Json(new { Name = "Zain Ul Hassan", ID = 1 }, JsonRequestBehavior.AllowGet);
         //}
 
-        public HttpStatusCodeResult Index()
-        {
-            return new HttpStatusCodeResult(HttpStatusCode.Unauthorized);
-        }
+        //public HttpStatusCodeResult Index()
+        //{
+        //    return new HttpStatusCodeResult(HttpStatusCode.Unauthorized);
+        //}
 
         public ActionResult About()
         {

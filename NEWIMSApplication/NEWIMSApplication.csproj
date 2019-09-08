@@ -139,6 +139,9 @@
     <Compile Include="Models\Employee.cs">
       <DependentUpon>SMS.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\GetAllUsers_Result.cs">
+      <DependentUpon>SMS.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\SMS.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -221,6 +224,8 @@
     <Content Include="Views\UserProfiles\Details.cshtml" />
     <Content Include="Views\UserProfiles\Edit.cshtml" />
     <Content Include="Views\UserProfiles\Index.cshtml" />
+    <Content Include="Views\Home\_HomeFooter.cshtml" />
+    <Content Include="Views\UserProfiles\ListView.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

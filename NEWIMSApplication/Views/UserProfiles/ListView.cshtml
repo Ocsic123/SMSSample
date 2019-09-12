@@ -5,4 +5,49 @@
 }
 
 <h2>ListView</h2>
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<script src="~/Scripts/datatables.js"></script>
+<link href="~/Content/datatables.css" rel="stylesheet" />
+
+
+
+<script>
+    $(document).ready(function () {
+        $('#example').DataTable({
+            "processing": true, // control the processing indicator.
+            "serverSide": true, // recommended to use serverSide when data is more than 10000 rows for performance reasons
+            "info": true,   // control table information display field
+            "stateSave": true,  //restore table state on page reload,
+            "lengthMenu": [[10, 20, 50, -1], [10, 20, 50, "All"]],    // use the first inner array as the page length values and the second inner array as the displayed options
+            "ajax":{
+                "url": "@string.Format("{0}://{1}{2}", Request.Url.Scheme, Request.Url.Authority, Url.Content("~"))/UserProfiles/AjaxGetJsonData",
+                "type": "GET"
+            },
+            "columns": [
+                { "data": "Name", "orderable" : true },
+                { "data": "Age", "orderable": false },
+                { "data": "DoB", "orderable": true }
+            ],
+            "order": [[0, "asc"]]
+        });
+    });
+</script>
+
+
+
+<div style="margin:30px;">
+
+    <table id="example" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr style="text-align:left;">
+                <th>Name</th>
+                <th>Age</th>
+                <th>DoB</th>
+            </tr>
+        </thead>
+
+
+    </table>
+
+</div>
 
